@@ -4,14 +4,18 @@ from twisted.python import log
 class pyNodeProtocol(Broker):
     def __init__(self,**kwargs):
         log.msg("creating a pyNodeProtocol")
+
+        Broker.__init__(self,**kwargs)
+
+    def connectionMade(self):
+        log.msg("connection created")
+        Broker.connectionMade(self)
+
     def connectionReady(self):
         log.msg("connection Ready")
-        super(pyNodeProtocol,self).connectionReady()
+        Broker.connectionReady(self)
 
-    def connectionFailed(self):
-        pass
 
     def connectionLost(self, reason):
         log.msg("Connection lost")
-        super(pyNodeProtocol, self).connectionLost(reason)
 
