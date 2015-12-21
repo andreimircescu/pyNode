@@ -82,5 +82,8 @@ if __name__ == "__main__":
     peer = peerNode(args.name,args.port)
     peer.start()
     peer.waitToStart()
-    import pdb;pdb.set_trace()
+
+    #temporary until some testing is done
+    #import pdb;pdb.set_trace()
+
     peer.stop()
